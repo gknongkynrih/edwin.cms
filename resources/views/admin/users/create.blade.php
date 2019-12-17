@@ -3,6 +3,7 @@
 @section('content')
     <h2>Create User</h2>    
     @include('includes.form_error')
+    @include('includes.flash')
     {!! Form::open(['method'=>'POST','action'=>'AdminUsersController@store','files'=>true]) !!}
 
     <div class="form-group">
