@@ -7,6 +7,8 @@ use App\User;
 use App\Role;
 use App\Photo;
 use App\Http\Requests\UsersRequest;
+use App\Http\Requests\UsersEditRequest;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
@@ -102,7 +104,7 @@ class AdminUsersController extends Controller
         if($file = $request->file('photo_id')){
             $pic = Photo::findOrFail($usr->photo_id);
             if($pic){
-//                File::delete(public_path() . $pic->path); //delete old photo
+               unlink(public_path() . $pic->path); //delete old photo
             }
             $name = time(). '_'. $file->getClientOriginalName();
             $file->move('images',$name);
@@ -119,8 +121,13 @@ class AdminUsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy( $id)
     {
-        //
+        //User::findOrFail($id)->delete();
+        $user = User::findOrFail($id);
+        unlink(public_path() .$user->photo->path);
+        $user->delete();
+        Session::flash('success', 'Task was successful!');
+        return redirect('admin/user/');
     }
 }

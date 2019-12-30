@@ -1,5 +1,7 @@
 @extends('layouts.admin')
+
 @section('content')
+    @include('includes.flash')
     <h1>Users</h1>
    <table class="table">
        <thead>

@@ -20,5 +20,17 @@ Auth::routes();
 //clear
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('admin/user', 'AdminUsersController');
 
+Route::group(['middleware'=>'admin'],function(){
+    Route::resource('admin/user', 'AdminUsersController');
+
+    Route::resource('admin/posts', 'AdminPostController');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

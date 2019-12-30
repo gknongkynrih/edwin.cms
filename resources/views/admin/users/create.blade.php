@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<div class="container col-md-8">
     <h2>Create User</h2>    
     @include('includes.form_error')
     @include('includes.flash')
@@ -31,7 +32,8 @@
     </div>
    
     <div class="form-group">
-        {!! Form::submit('Create User',['class'=>'btn btnprimary']) !!}
+        {!! Form::submit('Create User',['class'=>'btn btn-primary']) !!}
     </div>
     {!! Form::close() !!}
+</div>
 @endsection

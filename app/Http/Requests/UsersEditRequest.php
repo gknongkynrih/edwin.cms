@@ -29,5 +29,5 @@ class UsersEditRequest extends FormRequest
             'role_id'=>'required'
         ];
     }
-    }
+    
 }
