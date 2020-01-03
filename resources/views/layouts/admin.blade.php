@@ -61,6 +61,16 @@
                   <a class="dropdown-item" href="{{ route('posts.create') }}">Create Posts</a>
                 </div>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Categories
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('categories.index') }}">All Categories</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="{{ route('categories.create') }}">Create Category</a>
+                </div>
+              </li>
             <li class="nav-item">
               <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </li>
